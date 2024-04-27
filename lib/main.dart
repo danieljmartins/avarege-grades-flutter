@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() => runApp(MyApp());
 
@@ -78,6 +79,7 @@ class _CalculadoraMediaState extends State {
               controller: _controllerNota,
               decoration: InputDecoration(labelText: 'Nota'),
               keyboardType: TextInputType.number,
+              inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'^\d+\.?\d{0,2}$'))], // Impede que o usuário digite letras
             ),
             SizedBox(height: 10),
             ElevatedButton(
